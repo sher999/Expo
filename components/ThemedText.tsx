@@ -1,5 +1,5 @@
+import React from 'react';
 import { Text, type TextProps, StyleSheet } from 'react-native';
-
 import { useThemeColor } from '@/hooks/useThemeColor';
 
 export type ThemedTextProps = TextProps & {
@@ -16,6 +16,9 @@ export function ThemedText({
   ...rest
 }: ThemedTextProps) {
   const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
+  const ref = React.useRef<number>(0)
+  ref.current++
+  console.log(ref.current);
 
   return (
     <Text
